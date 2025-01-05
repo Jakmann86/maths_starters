@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Import KaTeX styles first */
+@import 'katex/dist/katex.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .math-display {
+        /* Use KaTeX's default math fonts instead of typewriter */
+        font-family: 'KaTeX_Main', serif;
+        line-height: 1.6;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Let KaTeX handle its own font families */
+    .math-display .katex {
+        font-family: inherit;
+    }
+
+    .math-display .katex-html {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    /* Size variations aligned with our MathDisplay component */
+    .math-normal .katex {
+        font-size: 1.1em;
+    }
+
+    .math-large .katex {
+        font-size: 1.4em;
+    }
+
+    .math-x-large .katex {
+        font-size: 1.8em;
+    }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Darker text color for better contrast */
+.katex,
+.katex-display,
+.katex .mord,
+.katex .mrel,
+.katex .mbin {
+    color: #374151;
+    /* Darker gray for better visibility */
+}
+
+/* Add specific styling for fractions */
+.katex .mfrac {
+    margin: 0.2em 0;
+}
+
+/* Improve spacing for superscripts and subscripts */
+.katex .msupsub {
+    margin: 0 0.1em;
 }
