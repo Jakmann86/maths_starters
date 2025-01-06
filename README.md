@@ -21,6 +21,8 @@ A React application featuring years worth of iGCSE year 11 maths starters.
 ### Prerequisites
 - Node.js
 - npm
+- Katex
+- React
 
 ### Installation
 1. Clone the repository
